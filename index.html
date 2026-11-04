@@ -1121,7 +1121,7 @@ function anaRefresh(){
   ["#q2a","#q2b","#q2c","#q3a","#q3b","#q3c"].forEach(s=>$(s).classList.remove("ok","no"));
   ["#q2Fb","#q3Fb"].forEach(s=>$(s).className="fb");
   ["#q2","#q3"].forEach(s=>$(s).classList.remove("solved"));
-  const k=$("#anaKey");
+  const k=$("#anaKey");if(!k)return;
   if(!has){k.innerHTML="측정을 마치면 그 데이터로 계산한 Q2·Q3 정답이 여기에 표시돼요. 학생마다 데이터가 조금씩 달라서 정답도 달라요.";return;}
   const dur=curRun.data[curRun.data.length-1][0];const p0=valAt(0),p10=valAt(10);
   let h=`<b>${curRun.lbl}</b> 기준 · Q2: 0 s ${p0.toFixed(2)} kPa, 10 s ${isFinite(p10)?p10.toFixed(2):"—"} kPa → ${isFinite(p10)?((p10-p0)/10).toFixed(3):"—"} kPa/s`;
